@@ -105,7 +105,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Монгол цагаан сар тооцоолуур'
+          content: 'Таны оруулсан онд цагаан сарын шинийн нэгэн хэзээ болох тухайн өдөр болон жилийн өнгө, мэнгийг тооцоолно.'
         },
         {
           hid: 'og:type',
@@ -125,7 +125,7 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Монгол цагаан сар тооцоолуур'
+          content: 'Таны оруулсан онд цагаан сарын шинийн нэгэн хэзээ болох тухайн өдөр болон жилийн өнгө, мэнгийг тооцоолно.'
         },
         {
           hid: 'og:image',
@@ -145,7 +145,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: 'Монгол цагаан сар тооцоолуур'
+          content: 'Таны оруулсан онд цагаан сарын шинийн нэгэн хэзээ болох тухайн өдөр болон жилийн өнгө, мэнгийг тооцоолно.'
         },
         {
           hid: 'twitter:image',
