@@ -8,7 +8,7 @@
       flex-dir="column"
       justify-content="center"
     >
-      <CHeading text-align="center" mb="4">
+      <CHeading as="h4" size="md" text-align="center" mb="4">
         Монгол цагаан сар тооцоолуур
       </CHeading>
       <CFlex justify="center" direction="column" align="center">
@@ -16,6 +16,7 @@
           <c-input-group size="md">
             <c-input
               v-model="year"
+              type="number"
               pr="4.5rem"
               placeholder="Оноо оруулна уу"
             />
@@ -27,6 +28,7 @@
           </c-input-group>
         </CFlex>
         <img style="width: 150px; height: 150px" :src="nowImage" fit="cover">
+        <!-- <img style="width: 150px; height: 150px" src="https://content.ikon.mn/ikon/dv/mur/3.png" fit="cover"> -->
         <span class="text-style">Жил: {{ res.Жил }}</span>
         <span class="text-style">Жаран: {{ res.Жаран }}</span>
         <span class="text-style">Жилийн мэнгэ: {{ res.Жилийн_мэнгэ }}</span>
@@ -177,32 +179,42 @@ export default {
   },
   methods: {
     changeYear () {
-      this.res = calculateNewYear(this.year)
-      const salgasanJil = this.res.Жил.split(' ')
-      if (salgasanJil[1] === 'хулгана') {
-        this.nowImage = this.mouseImg
-      } else if (salgasanJil[1] === 'үхэр') {
-        this.nowImage = this.cowImg
-      } else if (salgasanJil[1] === 'бар') {
-        this.nowImage = this.tigerImg
-      } else if (salgasanJil[1] === 'туулай') {
-        this.nowImage = this.rabbitImg
-      } else if (salgasanJil[1] === 'луу') {
-        this.nowImage = this.dragonImg
-      } else if (salgasanJil[1] === 'могой') {
-        this.nowImage = this.snakeImg
-      } else if (salgasanJil[1] === 'морь') {
-        this.nowImage = this.horseImg
-      } else if (salgasanJil[1] === 'хонь') {
-        this.nowImage = this.sheepImg
-      } else if (salgasanJil[1] === 'бич') {
-        this.nowImage = this.monkeyImg
-      } else if (salgasanJil[1] === 'тахиа') {
-        this.nowImage = this.chickenImg
-      } else if (salgasanJil[1] === 'нохой') {
-        this.nowImage = this.dogImg
-      } else if (salgasanJil[1] === 'гахай') {
-        this.nowImage = this.pigImg
+      if (this.year > 1000 && this.year < 9999) {
+        this.res = calculateNewYear(this.year)
+        const salgasanJil = this.res.Жил.split(' ')
+        if (salgasanJil[1] === 'хулгана') {
+          this.nowImage = this.mouseImg
+        } else if (salgasanJil[1] === 'үхэр') {
+          this.nowImage = this.cowImg
+        } else if (salgasanJil[1] === 'барс') {
+          this.nowImage = this.tigerImg
+        } else if (salgasanJil[1] === 'туулай') {
+          this.nowImage = this.rabbitImg
+        } else if (salgasanJil[1] === 'луу') {
+          this.nowImage = this.dragonImg
+        } else if (salgasanJil[1] === 'могой') {
+          this.nowImage = this.snakeImg
+        } else if (salgasanJil[1] === 'морь') {
+          this.nowImage = this.horseImg
+        } else if (salgasanJil[1] === 'хонь') {
+          this.nowImage = this.sheepImg
+        } else if (salgasanJil[1] === 'бич') {
+          this.nowImage = this.monkeyImg
+        } else if (salgasanJil[1] === 'тахиа') {
+          this.nowImage = this.chickenImg
+        } else if (salgasanJil[1] === 'нохой') {
+          this.nowImage = this.dogImg
+        } else if (salgasanJil[1] === 'гахай') {
+          this.nowImage = this.pigImg
+        }
+      } else {
+        this.$toast({
+          title: 'Анхааруулга.',
+          description: 'Та буруу он оруулсан байна.',
+          status: 'warning',
+          duration: 2000,
+          isClosable: true
+        })
       }
     }
   }
