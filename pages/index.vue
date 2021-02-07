@@ -37,15 +37,26 @@
         <span class="text-style">Өдрийн мэнгэ: {{ res.Өдрийн_мэнгэ }}</span>
         <span class="text-style">Суудал: {{ res.Суудал }}</span>
         <span class="text-style">Битүүний сар: {{ res.Битүүний_сар }}</span>
-        <CIconButton
-          mr="3"
-          mt="4"
-          :icon="colorMode === 'light' ? 'moon' : 'sun'"
-          :aria-label="`Switch to ${
-            colorMode === 'light' ? 'dark' : 'light'
-          } mode`"
-          @click="toggleColorMode"
-        />
+        <CStack is-inline>
+          <CIconButton
+            mr="3"
+            mt="4"
+            :icon="colorMode === 'light' ? 'moon' : 'sun'"
+            :aria-label="`Switch to ${
+              colorMode === 'light' ? 'dark' : 'light'
+            } mode`"
+            @click="toggleColorMode"
+          />
+          <CIconButton
+            mr="3"
+            mt="4"
+            :icon="'arrow-forward'"
+            :aria-label="`Switch to ${
+              colorMode === 'light' ? 'dark' : 'light'
+            } mode`"
+            @click="$router.push('lunardate')"
+          />
+        </CStack>
       </CFlex>
     </CBox>
   </div>
@@ -53,16 +64,18 @@
 
 <script lang="js">
 import {
+  CStack,
   CBox,
   CInput,
   CIconButton,
   CFlex,
   CHeading
 } from '@chakra-ui/vue'
-import calculateNewYear from './helper.js'
+import calculateNewYear from './lunarFirstDate.js'
 export default {
   name: 'App',
   components: {
+    CStack,
     CBox,
     CInput,
     CIconButton,
@@ -175,7 +188,9 @@ export default {
   },
   created () {
     this.changeYear()
-    this.toggleColorMode()
+    if (this.colorMode !== 'dark') {
+      this.toggleColorMode()
+    }
   },
   methods: {
     changeYear () {

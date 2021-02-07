@@ -134,6 +134,7 @@ function attribYear (Y) {
   ans.year = amod(Y - 6, 60)
   ans.cycle = Math.ceil((Y - 1026) / 60)
   ans.animal = Animal[amod(Y - 3, 12) - 1]
+  ans.animal_number = amod(Y - 3, 12) - 1
   ans.animalin = Animalin[amod(Y - 3, 12) - 1]
   ans.element = Element[Math.ceil(amod(Y - 3, 10) / 2) - 1]
   ans.colour = Colour[amod(Y - 3, 10) - 1]
@@ -240,6 +241,7 @@ function calculateNewYear (y) {
   return {
     Жаран: att.cycle,
     Жил: (att.elcor + ' ' + att.animal),
+    animal_number: att.animal_number,
     Жилийн_мэнгэ: Numbern[att.number - 1] + ' ' + att.colour9,
     Шинийн_нэгэн: y + '/' + Roman12[g.month - 1] + '/' + ((g.day < 10) ? '0' : '') + g.day + ' ' + Dlong[a.day],
     Өдрийн_өнгө: a.elcor + ' ' + Animal[a.animal - 1],
