@@ -33,6 +33,10 @@
             <span class="text-style">{{ res.odor_menge + ' мэнгэтэй' }}</span>
             <span class="text-style">{{ res.odor_animal + ' өдөр' }}</span>
           </CBox>
+          <CBox justify="center" direction="column" align="center">
+            <img style="width: 150px; height: 150px" :src="require('../assets/hairCut.png')">
+            <span class="text-style">{{ 'Үс засуулвал: ' + res.hairCutDay }}</span>
+          </CBox>
         </CStack>
         <CStack is-inline>
           <CIconButton

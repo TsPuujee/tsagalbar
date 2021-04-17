@@ -27,6 +27,9 @@ const CycleName = ['Сайтар гарсан', 'Сайтар болсон', 'Ц
 // const Type = ['Пүг', 'Цүр', 'Монгол', 'Бутан', 'Цагийн хүрдэн']
 const calType = 2 // default type Mongolian
 
+// Үс засуулах өдөр
+const hairCutDay = ['Нас ахар болно', 'Хэл ам хэрүүл тэмцэл ирнэ', 'Эд мал баялаг төгөлдөр болно', 'Бие эрхтний хүч сайжирна', 'Эд мал арвидна', 'Өнгө зүс сайжирна', 'Хэл ам хэрүүл тэмцэл ирнэ', 'Нас уртасна', 'Өвчин өчүүхэн ирнэ', 'Эрч хүн ихэснэ', 'Эрхтэн хурц болно', 'Өвчин эмгэг ирнэ', 'Жаргал ирнэ', 'Эд мал арвижина', 'Өлзийтэй сайн', 'Өвчин ирнэ', 'Өнгө зүс доройтно', 'Эд малын гарлагатай', 'Сайн нөхөртэй нөхөрлөнө', 'Өлсөж ундаасна', 'Өвчин ирнэ', 'Идээ ундаа элбэг олдоно', 'Эд эдлэл идээ ундаа олдоно', 'Өвчин эмгэг ирнэ', 'Нүд бүрэлзэн улцайн', 'Жаргал үргэлжид ирнэ', 'Өлзийтэй сайн', 'Хэрүүл тэмцэл ирнэ', 'Сүлд тэнэж одно', 'Эрлэг лугаа учирна']
+
 function amod (a, b) {
   let t = a % b
   if (t <= 0) { t += b }
@@ -237,6 +240,7 @@ function lunarDate (Y, M, D) {
     odor_menge: Numbern[dayAttr.number - 1] + ' ' + dayAttr.colour9,
     odor_animal: dayAttr.elcor + ' ' + Animal[dayAttr.animal - 1],
     odor_animal_number: dayAttr.animal - 1,
+    hairCutDay: hairCutDay[lunarDayNumber - 1],
     odor_full: 'Билгийн тооллийн ' + lunarDayNumber + ', ' + Element8[dayAttr.trigram - 1] + ' суудалтай, ' + Numbern[dayAttr.number - 1] + ' ' + dayAttr.colour9 + ' мэнгэтэй, ' + dayAttr.elcor + ' ' + Animal[dayAttr.animal - 1] + ' өдөр'
   }
 }
