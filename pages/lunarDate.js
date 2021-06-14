@@ -172,7 +172,7 @@ function attribYear (Y) {
   ans.elcor = calType === 2 ? ans.colour : ans.element
   ans.number = amod(2 - Y, 9)
   ans.colour9 = Colour9[ans.number - 1]
-  ans.cycleName = CycleName[(Y + 7) % 60]
+  ans.cycleName = CycleName[(Y - 7) % 60]
   return ans
 }
 
